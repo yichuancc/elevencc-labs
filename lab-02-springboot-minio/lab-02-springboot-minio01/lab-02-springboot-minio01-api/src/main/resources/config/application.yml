@@ -1,0 +1,12 @@
+minio:
+  endpoint: http://192.168.10.128:9000
+  accesskey: minioadmin
+  secretkey: minioadmin
+
+server:
+  port: 8090
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
