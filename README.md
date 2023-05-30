@@ -12,4 +12,8 @@
 
     * lab-02-springboot-minio01-web
 
-  * 
+  * lab-02-springboot-s3：S3协议分片上传
+
+    * lab-02-springboot-s3-api
+    * lab-02-springboot-s3-web
+
