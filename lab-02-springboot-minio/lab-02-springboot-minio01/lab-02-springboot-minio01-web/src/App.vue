@@ -15,7 +15,7 @@
       <el-button type="danger" plain @click="clearFileHandler">清空</el-button>
     </el-upload>
 
-    <img v-show="imgDataUrl" :src="imgDataUrl" />
+    <img v-show="imgDataUrl" :src="imgDataUrl"/>
     <!-- 文件列表 -->
     <div class="file-list-wrapper">
       <el-collapse>
@@ -26,7 +26,7 @@
               <div class="file-info-item file-size">{{ item.size | transformByte }}</div>
               <div class="file-info-item file-progress">
                 <span class="file-progress-label"></span>
-                <el-progress :percentage="item.uploadProgress" class="file-progress-value" />
+                <el-progress :percentage="item.uploadProgress" class="file-progress-value"/>
               </div>
               <div class="file-info-item file-size"><span></span>
                 <el-tag v-if="item.status === '等待上传'" size="medium" type="info">等待上传</el-tag>
@@ -40,7 +40,7 @@
           <div class="file-chunk-list-wrapper">
             <!-- 分片列表 -->
             <el-table :data="item.chunkList" max-height="400" style="width: 100%">
-              <el-table-column prop="chunkNumber" label="分片序号" width="180" />
+              <el-table-column prop="chunkNumber" label="分片序号" width="180"/>
               <el-table-column prop="progress" label="上传进度">
                 <template v-slot="{ row }">
                   <el-progress v-if="!row.status || row.progressStatus === 'normal'"
@@ -51,7 +51,7 @@
                   />
                 </template>
               </el-table-column>
-              <el-table-column prop="status" label="状态" width="180" />
+              <el-table-column prop="status" label="状态" width="180"/>
             </el-table>
           </div>
 
@@ -188,6 +188,7 @@ export default {
         console.log(uploadIdInfoResult);
 
         const uploadIdInfo = uploadIdInfoResult.data.result;
+        const uploadId = uploadIdInfo.uploadId;
 
         self.saveFileUploadId(uploadIdInfo.uploadId);
 
@@ -195,12 +196,12 @@ export default {
 
         self.$set(currentFile, 'chunkList', []);
 
-        if (uploadUrls !== undefined) {
-          if (fileChunks.length !== uploadUrls.length) {
-            self.$message.error('文件分片上传地址获取错误');
-            return;
-          }
-        }
+        // if (uploadUrls !== undefined) {
+        //   if (fileChunks.length !== uploadUrls.length) {
+        //     self.$message.error('文件分片上传地址获取错误');
+        //     return;
+        //   }
+        // }
         // else if (uploadUrls.length === 1) {
         // 	currentFileIndex++;
         // 	//文件上传成功
@@ -232,7 +233,7 @@ export default {
         currentFile.status = FileStatus.uploading;
 
         // 5. 上传
-        await self.uploadChunkBase(tempFileChunks);
+        await self.uploadChunkBase(tempFileChunks, md5, uploadId);
 
         // let imgParam = {
         // 	fileName: screenImg.name,
@@ -363,21 +364,21 @@ export default {
      * @param {*} file
      */
     beforeUploadVideo(file) {
-      const type = file.name.substring(file.name.lastIndexOf('.') + 1);
-      if (
-        [
-          'mp4',
-          'ogg',
-          'flv',
-          'avi',
-          'wmv',
-          'rmvb'
-          // eslint-disable-next-line eqeqeq
-        ].indexOf(type) == -1
-      ) {
-        this.$message.error('请上传正确的视频格式');
-        return false;
-      }
+      // const type = file.name.substring(file.name.lastIndexOf('.') + 1);
+      // if (
+      //     [
+      //       'mp4',
+      //       'ogg',
+      //       'flv',
+      //       'avi',
+      //       'wmv',
+      //       'rmvb'
+      //       // eslint-disable-next-line eqeqeq
+      //     ].indexOf(type) == -1
+      // ) {
+      //   this.$message.error('请上传正确的视频格式');
+      //   return false;
+      // }
     },
     getNewFileName(file, md5) {
       return new Date().getTime() + file.name;
@@ -455,7 +456,7 @@ export default {
       }
       return chunkList;
     },
-    uploadChunkBase(chunkList) {
+    uploadChunkBase(chunkList, md5, uploadId) {
       const self = this;
       let successCount = 0;
       const totalChunks = chunkList.length;
@@ -463,13 +464,19 @@ export default {
         const handler = () => {
           if (chunkList.length) {
             const chunkItem = chunkList.shift();
+            const fd = new FormData();
+            console.log(chunkItem.chunk.file.size);
+            fd.append('file', chunkItem.chunk.file);
+            fd.append('fileMd5', md5);
+            fd.append('uploadId', uploadId);
+            fd.append('partNumber', chunkItem.chunkNumber);
+
             // 直接上传二进制，不需要构造 FormData，否则上传后文件损坏
-            this.$http.put(chunkItem.uploadUrl, chunkItem.chunk.file, {
-              // 上传进度处理
-              onUploadProgress: self.checkChunkUploadProgress(chunkItem),
-              headers: {
-                'Content-Type': 'application/octet-stream'
-              }
+            self.$http.request({
+              url: 'oss/file/multipart/uploadPart',
+              method: 'post',
+              data: fd,
+              headers: {'Content-Type': 'application/octet-stream'}
             }).then(response => {
               if (response.status === 200) {
                 console.log('分片：' + chunkItem.chunkNumber + ' 上传成功');
@@ -483,14 +490,7 @@ export default {
               } else {
                 console.log('上传失败：' + response.status + '，' + response.statusText);
               }
-            })
-              .catch(error => {
-                // 更新状态
-                console.log('分片：' + chunkItem.chunkNumber + ' 上传失败，' + error);
-                // 重新添加到队列中
-                chunkList.push(chunkItem);
-                handler();
-              });
+            });
           }
           if (successCount >= totalChunks) {
             resolve();
