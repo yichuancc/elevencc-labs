@@ -14,6 +14,8 @@ public class Lab0101Application {
         for (String bn : beanNames) {
             System.out.println(bn);
         }
+        Integer integer = Integer.valueOf(11);
+        int i = integer;
     }
 
 }

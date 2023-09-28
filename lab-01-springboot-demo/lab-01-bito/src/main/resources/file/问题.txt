@@ -1,0 +1,25 @@
+1、用springboot实现一个简单的Rest API
+
+2、git中怎么设置提交邮箱和用户信息
+
+3、解释一些技术概念相关的问题
+   3.1 说一下java包装类型的缓存机制
+   3.2 java finally 中的代码一定会执行吗
+   3.3 HashMap是线程安全的吗，给一段线程安全的map使用示例
+   3.4 Jvm的常用命令，怎么查看java程序占用的内存大小
+   3.5 Spring事务中的事务传播行为
+   3.6 mysql 常见的语句优化方式，mysql索引失效的情况
+
+4、linux部署jar包流程
+
+5、nohup java -Xms1024m -Xmx1024m -jar resource-center-server.jar --spring.profiles.active="test" 2>tt_err 1>tt_log &
+
+
+
+
+
+
+
+
+
+

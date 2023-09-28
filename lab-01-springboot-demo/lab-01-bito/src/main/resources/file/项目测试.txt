@@ -1,0 +1,74 @@
+1、数字校园2.0
+
+    解释代码：Explain this Code
+    szxy-microserver-manager --> application-prod.yml
+
+    TAccountServiceImpl类getAppIdList
+
+    安全检查：Security Check
+    SysDictMapper.xml文件
+
+    提高可读性：Improve Readability
+    任意一段代码
+
+2、测试Demo
+    安全检查：Security Check
+
+    BitoTest01
+    性能检查：Performance Check
+    BitoTest01
+
+    安全检查：Security Check
+    BitoTest02: 死锁问题，怎么排查死锁问题
+        jps：使用 jps 命令查看 Java 进程的 ID
+        jstack：使用 jstack 命令查看 Java 进程的线程堆栈
+
+    提高可读性：Improve Readability
+    BitoTest03
+
+    清洁代码：Clean Code
+    BitoTest03
+
+    性能检查：Performance Check
+    BitoTest03
+
+3、sql语句
+    性能检查：Performance Check
+    or与union all，将or条件转换为union all，利用多个or条件上的索引以提高性能
+
+    SELECT
+    	count( id ) AS num_count
+    FROM
+    	tb_push_message
+    WHERE
+    	uid = 8212123
+    	AND ( type1 = 1 or type2 = 2 or type3 = 3 ) and read_yn = 0
+
+
+    SELECT SUM( id )
+    FROM
+    (
+        SELECT
+            COUNT( id )
+        FROM
+            tb_push_message
+        WHERE
+            uid = 8212123 AND read_yn = 0 AND TYPE1 = 1
+        UNION ALL
+        SELECT
+            COUNT( id )
+        FROM
+            tb_push_message
+        WHERE
+            uid = 8212123 AND read_yn = 0  AND type2 = 2
+        UNION ALL
+        SELECT
+            COUNT( id )
+        FROM
+            tb_push_message
+        WHERE
+            uid = 8212123 AND read_yn = 0 AND TYPE3 = 3
+    ) t
+
+
+

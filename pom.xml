@@ -11,7 +11,7 @@
     <modules>
         <!-- Spring Boot 示例 -->
         <module>lab-01-springboot-demo</module>
-        <module>lab-02-springboot-minio</module>
+<!--        <module>lab-02-springboot-minio</module>-->
     </modules>
 
 </project>
