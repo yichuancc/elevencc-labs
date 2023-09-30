@@ -10,8 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <!-- Spring Boot 示例 -->
-        <module>lab-01-springboot-demo</module>
-<!--        <module>lab-02-springboot-minio</module>-->
+        <module>lab-00-springboot</module>
     </modules>
 
 </project>
