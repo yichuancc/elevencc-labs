@@ -11,6 +11,8 @@
     <modules>
         <!-- Spring Boot 示例 -->
         <module>lab-00-springboot</module>
+        <!-- Spring Boot 代码生成 -->
+        <module>lab-01-code-generator</module>
     </modules>
 
 </project>

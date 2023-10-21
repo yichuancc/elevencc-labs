@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://221.122.67.4:3306/zhyw4.0-new?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: Xnew@82665899
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #???????package?????????
+  typeAliasesPackage: com.central.generator.model
