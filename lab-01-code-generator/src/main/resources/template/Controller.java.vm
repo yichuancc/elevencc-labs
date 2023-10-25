@@ -44,7 +44,7 @@ public class ${className}Controller extends BaseController {
      * @return
      */
     @ApiOperation(value = "分页列表查询" )
-    @GetMapping(value = "/pageList" )
+    @GetMapping(value = "/page" )
     public ResponseData queryPageList(${className} ${classname}) {
         QueryWrapper<${className}> queryWrapper = new QueryWrapper<>();
         Page<${className}> page = getPageContext();
@@ -73,8 +73,8 @@ public class ${className}Controller extends BaseController {
      * @return
      */
     @ApiOperation(value = "添加" )
-    @PostMapping(value = "/add" )
-    public ResponseData add(@RequestBody ${className} ${classname}) {
+    @PostMapping(value = "/save" )
+    public ResponseData save(@RequestBody ${className} ${classname}) {
         ${classname}Service.save(${classname});
         return ResponseData.success(${classname});
     }

@@ -3,6 +3,7 @@ package ${package}.${moduleName}.entity;
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.xnewtech.medical.yw.modular.common.entity.BaseEntity;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,7 +21,7 @@ import java.util.Date;
 @Data
 @TableName("${tableName}")
 @ApiModel(value="${tableName}对象")
-public class ${className} implements Serializable {
+public class ${className} extends BaseEntity {
     private static final long serialVersionUID=1L;
 
 #foreach ($column in $columns)
@@ -31,24 +32,6 @@ public class ${className} implements Serializable {
     @ApiModelProperty("${column.comments}")
 #if($column.columnName == $pk.columnName)
     @TableId(type = IdType.ASSIGN_ID)
-#end
-#if($column.attrname == "createTime")
-    @TableField(fill = FieldFill.INSERT)
-#end
-#if($column.attrname == "createUser")
-    @TableField(fill = FieldFill.INSERT)
-#end
-#if($column.attrname == "createName")
-    @TableField(fill = FieldFill.INSERT)
-#end
-#if($column.attrname == "updateTime")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-#end
-#if($column.attrname == "updateUser")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-#end
-#if($column.attrname == "updateName")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
 #end
     private $column.attrType $column.attrname;
 #end
