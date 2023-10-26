@@ -45,7 +45,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "分页列表查询" )
     @GetMapping(value = "/page" )
-    public ResponseData queryPageList(${className} ${classname}) {
+    public ResponseData<LayuiPageInfo> queryPageList(${className} ${classname}) {
         QueryWrapper<${className}> queryWrapper = new QueryWrapper<>();
         Page<${className}> page = getPageContext();
         IPage<${className}> pageList = ${classname}Service.page(page, queryWrapper);
@@ -60,7 +60,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "列表查询" )
     @GetMapping(value = "/list" )
-    public ResponseData queryList(${className} ${classname}) {
+    public ResponseData<List<${className}>> queryList(${className} ${classname}) {
         QueryWrapper<${className}> queryWrapper = new QueryWrapper<>();
         List<${className}> pageList = ${classname}Service.list(queryWrapper);
         return ResponseData.success(pageList);
@@ -74,7 +74,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "添加" )
     @PostMapping(value = "/save" )
-    public ResponseData save(@RequestBody ${className} ${classname}) {
+    public ResponseData<${className}> save(@RequestBody ${className} ${classname}) {
         ${classname}Service.save(${classname});
         return ResponseData.success(${classname});
     }
@@ -87,7 +87,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "编辑" )
     @PostMapping(value = "/edit" )
-    public ResponseData edit(@RequestBody ${className} ${classname}) {
+    public ResponseData<${className}> edit(@RequestBody ${className} ${classname}) {
         ${classname}Service.updateById(${classname});
         return ResponseData.success(${classname});
     }
@@ -100,7 +100,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "批量删除")
     @PostMapping(value = "/delete")
-    public ResponseData delete(@RequestParam(name = "ids", required = true) String ids) {
+    public ResponseData<?> delete(@RequestParam(name = "ids") String ids) {
         ${classname}Service.removeByIds(Arrays.asList(ids.split(",")));
         return ResponseData.success();
     }
@@ -113,7 +113,7 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "通过id查询详情")
     @GetMapping(value = "/detail")
-    public ResponseData queryById(@RequestParam(name = "id", required = true) String id) {
+    public ResponseData<${className}> queryById(@RequestParam(name = "id") String id) {
         ${className} ${classname} = ${classname}Service.getById(id);
         return ResponseData.success(${classname});
     }

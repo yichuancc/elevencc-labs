@@ -25,7 +25,7 @@ public class ${className} extends BaseEntity {
     private static final long serialVersionUID=1L;
 
 #foreach ($column in $columns)
-
+#if($column.attrname != "createTime" && $column.attrname != "updateTime" && $column.attrname != "updateUser" && $column.attrname != "updateName" && $column.attrname != "createName" && $column.attrname != "createUser" && $column.attrname != "delFlag")
     /**
      * ${column.comments}
      */
@@ -34,5 +34,6 @@ public class ${className} extends BaseEntity {
     @TableId(type = IdType.ASSIGN_ID)
 #end
     private $column.attrType $column.attrname;
+#end
 #end
 }
