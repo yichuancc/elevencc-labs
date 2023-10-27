@@ -45,8 +45,8 @@ public class ${className}Controller extends BaseController {
      */
     @ApiOperation(value = "分页列表查询" )
     @GetMapping(value = "/page" )
-    public ResponseData<LayuiPageInfo> queryPageList(${className} ${classname}) {
-        QueryWrapper<${className}> queryWrapper = new QueryWrapper<>();
+    public ResponseData<LayuiPageInfo> queryPage(${className} ${classname}) {
+        LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
         Page<${className}> page = getPageContext();
         IPage<${className}> pageList = ${classname}Service.page(page, queryWrapper);
         return ResponseData.success(LayuiPageFactory.createPageInfo(pageList));
@@ -61,7 +61,7 @@ public class ${className}Controller extends BaseController {
     @ApiOperation(value = "列表查询" )
     @GetMapping(value = "/list" )
     public ResponseData<List<${className}>> queryList(${className} ${classname}) {
-        QueryWrapper<${className}> queryWrapper = new QueryWrapper<>();
+        LambdaQueryWrapper<${className}> queryWrapper = new LambdaQueryWrapper<>();
         List<${className}> pageList = ${classname}Service.list(queryWrapper);
         return ResponseData.success(pageList);
     }
