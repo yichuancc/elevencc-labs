@@ -13,6 +13,8 @@
         <module>lab-00-springboot</module>
         <!-- Spring Boot 代码生成 -->
         <module>lab-01-code-generator</module>
+        <!-- Spring Boot 数据库文档生成 -->
+        <module>lab-02-database-word</module>
     </modules>
 
 </project>
