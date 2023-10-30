@@ -10,5 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>lab-03-cache-caffeine01</module>
+        <module>lab-03-cache-caffeine02</module>
     </modules>
 </project>

@@ -1,0 +1,17 @@
+spring:
+  # datasource 数据源配置内容
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/testdb?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+# logging
+logging:
+  level:
+    # dao 开启 debug 模式 mybatis 输入 sql
+    com:
+      cc:
+        lab03cachecaffeine02:
+          mapper: debug
+
+
