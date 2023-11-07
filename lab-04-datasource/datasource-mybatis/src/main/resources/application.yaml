@@ -1,0 +1,17 @@
+spring:
+  # datasource 数据源配置内容
+  datasource:
+    # 订单数据源配置
+    orders:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test_orders?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+    # 用户数据源配置
+    users:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test_users?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+
+

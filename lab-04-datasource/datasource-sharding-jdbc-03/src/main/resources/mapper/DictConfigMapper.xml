@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.elevencc.springboot.datasource.mapper.DictConfigMapper">
+
+    <sql id="FIELDS">
+        id
+        , dict_type
+    </sql>
+
+    <select id="selectById" parameterType="Long" resultType="DictConfigDO">
+        SELECT
+        <include refid="FIELDS"/>
+        FROM dict_config
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="DictConfigDO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dict_config (dict_type)
+        VALUES (#{dictType})
+    </insert>
+
+    <update id="updateById" parameterType="DictConfigDO">
+        UPDATE dict_config
+        <set>
+            <if test="null != dictType and '' != dictType">dict_type = #{dictType}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>

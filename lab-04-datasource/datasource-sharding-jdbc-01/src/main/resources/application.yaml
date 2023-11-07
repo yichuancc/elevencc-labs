@@ -1,0 +1,39 @@
+spring:
+  # ShardingSphere 配置项
+  shardingsphere:
+    #打印SQL
+    props:
+      sql-show: true
+    datasource:
+      # 所有数据源的名字
+      names: ds-orders, ds-users
+      # 订单 orders 数据源配置
+      ds-orders:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/test_orders?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: root
+      # 订单 users 数据源配置
+      ds-users:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/test_users?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: root
+    # 分片规则
+    rules:
+      sharding:
+        tables:
+          # orders 表配置
+          orders:
+            actual-data-nodes: ds-orders.orders # 映射到 ds-orders 数据源的 orders 表
+          # users 表配置
+          users:
+            actual-data-nodes: ds-users.users # 映射到 ds-users 数据源的 users 表
+
+# mybatis 配置内容
+mybatis:
+  config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
+  mapper-locations: classpath:mapper/*.xml # 配置 Mapper XML 地址
+  type-aliases-package: cn.elevencc.springboot.datasource.pojo # 配置数据库实体包路径
