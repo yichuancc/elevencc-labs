@@ -19,6 +19,8 @@
         <module>lab-03-cache</module>
         <!-- 缓存 -->
         <module>lab-04-datasource</module>
+        <!-- 工作流 -->
+        <module>lab-05-workflow</module>
     </modules>
 
 </project>

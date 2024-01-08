@@ -1,0 +1,30 @@
+server:
+  port: 8088
+
+flowable:
+  idm:
+    app:
+      admin:
+        # 登录的用户名
+        user-id: admin
+        # 登录的密码
+        password: admin
+        # 用户的名字
+        first-name: cc
+        last-name: cc
+  database-schema-update: true
+spring:
+  # mysql连接信息
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/flowable?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: true
+
