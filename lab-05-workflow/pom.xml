@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <description>lab-05-workflow</description>
     <modules>
+        <module>lab-05-workflow-activiti7</module>
         <module>lab-05-workflow-flowable</module>
         <module>lab-05-workflow-flowable-ui</module>
     </modules>
