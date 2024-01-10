@@ -58,3 +58,11 @@ BPMN协议就是倾向于业务流程的管理和定义、CMMN 更倾向与管�
 >
 > [Activiti7与SpringBoot整合开发](https://andyoung.blog.csdn.net/article/details/118372175)
 
+# Activiti——BPMN2.0规范讲解
+
+> [规范详解(一)](https://blog.csdn.net/cold___play/article/details/132580669)
+>
+> [规范详解(二)](https://blog.csdn.net/cold___play/article/details/132603426)
+>
+> [流程图XML以及与流程文件的转换](https://blog.csdn.net/cold___play/article/details/132841357)
+
