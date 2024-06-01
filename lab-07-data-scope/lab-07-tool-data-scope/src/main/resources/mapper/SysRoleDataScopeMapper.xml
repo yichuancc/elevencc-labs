@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.lab07tooldatascope.module.mapper.SysRoleDataScopeMapper">
+    <select id="dataByMapper" resultType="com.cc.lab07tooldatascope.mybatis.datascope.model.DataScopeModel">
+        SELECT id,
+               scope_column,
+               scope_field,
+               scope_type,
+               scope_value
+        FROM sys_data_scope
+        WHERE scope_class = #{mapperId}
+          And del_flag = '0'
+          AND id IN (SELECT data_scope_id
+                     FROM sys_role_data_scope
+                     WHERE role_id = #{roleId})
+
+    </select>
+</mapper>

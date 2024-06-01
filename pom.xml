@@ -23,6 +23,8 @@
         <module>lab-05-workflow</module>
         <!-- 规则引擎 -->
         <module>lab-06-rule-engine</module>
+        <!-- 数据权限 -->
+        <module>lab-07-data-scope</module>
     </modules>
 
 </project>
