@@ -11,13 +11,13 @@
     <modules>
         <!-- Spring Boot 示例 -->
         <module>lab-00-springboot</module>
-        <!-- Spring Boot 代码生成 -->
+        <!-- 代码生成 -->
         <module>lab-01-code-generator</module>
-        <!-- Spring Boot 数据库文档生成 -->
+        <!-- 数据库文档生成 -->
         <module>lab-02-database-word</module>
-        <!-- Spring Boot 缓存 -->
-        <module>lab-03-cache</module>
         <!-- 缓存 -->
+        <module>lab-03-cache</module>
+        <!-- 多数据源 -->
         <module>lab-04-datasource</module>
         <!-- 工作流 -->
         <module>lab-05-workflow</module>
