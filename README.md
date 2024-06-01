@@ -31,3 +31,7 @@ lab-06-rule-engine
 ## 数据权限 
 
 lab-07-data-scope
+
+## 文件对象存储
+
+lab-08-file

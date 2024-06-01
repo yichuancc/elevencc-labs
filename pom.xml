@@ -25,6 +25,8 @@
         <module>lab-06-rule-engine</module>
         <!-- 数据权限 -->
         <module>lab-07-data-scope</module>
+        <!-- 文件对象存储 -->
+        <module>lab-08-file</module>
     </modules>
 
 </project>

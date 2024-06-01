@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cc</groupId>
-    <artifactId>lab-07-data-scope</artifactId>
+    <artifactId>lab-08-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lab-07-data-scope</name>
+    <name>lab-08-framework</name>
     <packaging>pom</packaging>
-    <description>lab-07-data-scope</description>
+    <description>lab-08-framework</description>
     <modules>
-        <module>lab-07-tool-data-scope</module>
+        <module>lab-starter-file1</module>
     </modules>
 </project>

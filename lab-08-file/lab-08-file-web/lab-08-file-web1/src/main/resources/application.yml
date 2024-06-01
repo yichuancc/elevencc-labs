@@ -1,0 +1,19 @@
+#文件存储配置
+file-server:
+  defaultType: disk
+  disk:
+    enabled: true
+    base-path: /opt/file/disk #本地文件上传路径
+  minio:
+    enabled: false
+    endpoint: http://127.0.0.1:9000
+    access-key: minio
+    secret-key: minio
+    bucket-name: minio
+
+spring:
+  servlet:
+    multipart:
+      max-request-size: 100MB # 允许的请求数据大小
+      max-file-size: 100MB # 最大文件大小
+
