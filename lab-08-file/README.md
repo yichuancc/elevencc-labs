@@ -11,3 +11,24 @@
 ### lab-08-file-web1
 
 lab-starter-file1组件引入，功能测试
+
+## 参考项目
+
+### 文件上传
+
+```shell
+#本地磁盘-分片上传、断点续传、秒传、下载功能
+vip-file-upload
+
+#minio-分片上传、秒传
+minio-upload
+
+#天翼云-minio分片上传、秒传、基础上传，项目内嵌
+lzjy-szjyzy
+
+#minio基础服务能力
+user-center
+```
+
+
+
