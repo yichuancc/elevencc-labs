@@ -1473,3 +1473,18 @@ public void test8() {
 - spring中很多以@Enable开头的都是使用@Import集合ImportSelector方式实现的
 - BeanDefinitionRegistry接口：bean定义注册器，这个需要掌握常见的方法
 
+# test03：Lambda表达式
+
+> [Lambda表达式：会这10招就够了](https://mp.weixin.qq.com/s/6pfxLJAr8C3JAixObwqrzA)
+
+* 集合遍历：test03/demo01/ListForEach.java
+* 集合排序：test03/demo01/ListSort.java
+* 集合过滤：test03/demo01/ListFilter.java
+
+* 映射操作：test03/demo01/ListMap.java
+* 计算操作：test03/demo01/ListReduce.java
+* 分组操作：test03/demo01/ListGroup.java
+* 函数式接口：test03/demo01/FunctionalInterface.java
+* Optional：test03/demo01/OptionalDemo.java
+* Stream流水操作：test03/demo01/ListStream.java
+* 扩展易读性：test03/demo01/ReadabilityDemo.java
