@@ -1,4 +1,4 @@
-package com.cc.lab9901.test04.controller;
+package com.cc.lab9901.test04.demo01.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +18,7 @@ import java.util.concurrent.*;
  * @create: 2024-06-25 19:32
  */
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/test04")
 public class TestController {
 
     private static final ThreadPoolExecutor POOL = new ThreadPoolExecutor(18, 18, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1000));

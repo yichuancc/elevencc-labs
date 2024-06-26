@@ -1,4 +1,4 @@
-package com.cc.lab9901.test04.config;
+package com.cc.lab9901.test04.demo01.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

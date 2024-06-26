@@ -1,4 +1,4 @@
-package com.cc.lab9901.test04.controller;
+package com.cc.lab9901.test04.demo01.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
