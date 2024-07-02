@@ -292,9 +292,35 @@ CompletableFuture的 API 比较多，不同的方法有不同的使用场景，�
 | `anyOf` | 多个线程任一执行完返回 | 有返回值   |
 | `allOf` | 多个线程全部执行完返回 | 无返回值   |
 
+## 应用场景
 
+> https://www.cnblogs.com/zwh0910/p/17483514.html
 
+### 描述依赖关系
 
+thenApply() 把前面异步任务的结果，交给后面的Function
+
+thenCompose()用来连接两个有依赖关系的任务，结果由第二个任务返回
+
+### 描述and聚合关系
+
+thenCombine 任务合并，有返回值
+
+thenAccepetBoth 两个任务执行完成后，将结果交给thenAccepetBoth消耗，无返回值
+
+runAfterBoth 两个任务都执行完成后，执行下一步操作（Runnable）
+
+### 描述or聚合关系
+
+applyToEither 两个任务谁执行的快，就使用那一个结果，有返回值
+
+acceptEither 两个任务谁执行的快，就消耗那一个结果，无返回值
+
+runAfterEither 任意一个任务执行完成，进行下一步操作(Runnable)
+
+### 并行执行
+
+CompletableFuture类自己也提供了anyOf()和allOf()用于支持多个CompletableFuture并行执行。
 
 
 
