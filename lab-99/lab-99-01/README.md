@@ -1725,5 +1725,9 @@ public Callable<Map> allInfo(@PathVariable("id") Long id) throws Exception {
 
 调用supplyAsync方法时指定自定义的线程池。
 
+# test05：IK分词器
 
+> [IK Analyzer分词工具的springboot项目整合代码版](https://www.cnblogs.com/liuyanntes/p/12540696.html)
+>
+> [Spring-Boot使用IK分词器](https://blog.csdn.net/qq_71387716/article/details/140404886)
 
