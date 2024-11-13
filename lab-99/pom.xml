@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>lab-99-01</module>
+        <module>lab-99-02</module>
     </modules>
 
 </project>
