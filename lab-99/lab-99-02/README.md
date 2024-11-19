@@ -510,3 +510,8 @@ protected void registerListeners() {
 - • Spring事件（Spring Events）是Spring框架的一项功能，基于观察者模式实现，适用于内部组件之间的通信和解耦，常用于用户注册事件、库存更新事件等轻量级事件的处理。
 - • Spring事件本身不提供强制的可靠性保证机制，可靠性需要由应用开发者来保证。
 - • 跨应用、跨服务、分布式系统以及异步处理、或者高并发场景，不适合Spring事件，此时考虑消息队列更加合适。
+
+# test05：Spring Event监听2
+
+> 参考链接：https://mp.weixin.qq.com/s/eoLF7CRLWTx-tLvqh2CUkQ，事件管理模块
+
