@@ -515,3 +515,6 @@ protected void registerListeners() {
 
 > 参考链接：https://mp.weixin.qq.com/s/eoLF7CRLWTx-tLvqh2CUkQ，事件管理模块
 
+# test06：SpringWeb许可证号校验
+
+根据Mac判断是否序列号是否合法，可拓展比较开始时间比较，结束时间比较，是否永久，是否临时，通过定时任务来控制临时许可证号

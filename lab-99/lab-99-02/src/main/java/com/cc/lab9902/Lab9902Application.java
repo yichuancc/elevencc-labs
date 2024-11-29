@@ -2,14 +2,17 @@ package com.cc.lab9902;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class Lab9902Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Lab9902Application.class, args);
     }
 
+//    test05使用
 //    public static void main(String[] args) {
 //        //创建一个Spring容器
 //        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
