@@ -1,0 +1,13 @@
+server:
+  port: 9903
+
+ibm:
+  mq:
+    host: 192.168.126.129
+    port: 1414
+    queue-manager: MQ01
+    channel: YLZKPT_SERVER_CON
+    username: lzjy
+    password: lzjy
+    receive-timeout: 10000
+

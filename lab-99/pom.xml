@@ -12,6 +12,7 @@
     <modules>
         <module>lab-99-01</module>
         <module>lab-99-02</module>
+        <module>lab-99-03</module>
     </modules>
 
 </project>

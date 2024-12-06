@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--日志格式应用spring boot默认的格式，也可以自己更改-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!--定义日志存放的位置，默认存放在项目启动的相对路径的目录-->
+    <springProperty scope="context" name="LOG_PATH" source="logging.file.path" defaultValue="logs"/>
+    <springProperty scope="context" name="MAX_FILE_SIZE" source="logging.file.max-file-size" defaultValue="10MB"/>
+    <springProperty scope="context" name="MAX_HISTORY" source="logging.file.max-history" defaultValue="30"/>
+    <springProperty scope="context" name="TOTAL_SIZE_CAP" source="logging.file.total-size-cap" defaultValue="1GB"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+    <!--默认所有的包以info-->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!--各个服务的包在本地执行的时候，打开debug模式-->
+    <logger name="com.cc" level="debug" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <!--        &lt;!&ndash; 日志记录器，日期滚动记录 &ndash;&gt;-->
+    <!--        <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--            &lt;!&ndash; 正在记录的日志文件的路径及文件名 &ndash;&gt;-->
+    <!--            <file>${LOG_PATH}/log_total.log</file>-->
+    <!--            &lt;!&ndash; 基于大小和时间的滚动策略 &ndash;&gt;-->
+    <!--            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+    <!--                &lt;!&ndash; 归档的日志文件的路径，%d{yyyy-MM-dd}指定日期格式，%i指定索引 &ndash;&gt;-->
+    <!--                <fileNamePattern>${LOG_PATH}/log-total-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+    <!--                &lt;!&ndash; 日志文件保留天数 &ndash;&gt;-->
+    <!--                <maxHistory>${MAX_HISTORY}</maxHistory>-->
+    <!--                &lt;!&ndash;单个日志文件的最大体积&ndash;&gt;-->
+    <!--                <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>-->
+    <!--                &lt;!&ndash;控制所有归档日志文件的总大小&ndash;&gt;-->
+    <!--                <totalSizeCap>${TOTAL_SIZE_CAP}</totalSizeCap>-->
+    <!--                &lt;!&ndash;是否在应用启动的时候删除历史日志&ndash;&gt;-->
+    <!--                <cleanHistoryOnStart>true</cleanHistoryOnStart>-->
+    <!--            </rollingPolicy>-->
+    <!--            &lt;!&ndash; 日志文件的格式 &ndash;&gt;-->
+    <!--            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+    <!--                <pattern>${FILE_LOG_PATTERN}</pattern>-->
+    <!--                <charset>utf-8</charset>-->
+    <!--            </encoder>-->
+    <!--        </appender>-->
+    <!--        &lt;!&ndash;记录到文件时，所有日志&ndash;&gt;-->
+    <!--        <root level="info">-->
+    <!--            <appender-ref ref="FILE_ALL"/>-->
+    <!--        </root>-->
+</configuration>
+
+
