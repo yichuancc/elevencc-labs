@@ -1,0 +1,18 @@
+# web服务访问端口
+server:
+  port: 8080
+
+#langchain4j测试模型
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: demo
+      model-name: gpt-4o-mini
+      log-requests: true #请求和响应日志
+      log-responses: true
+      base-url: http://langchain4j.dev/demo/openai/v1
+
+#启用日志debug级别
+logging:
+  level:
+    root: debug

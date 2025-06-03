@@ -1,0 +1,4 @@
+# web服务访问端口
+server:
+  port: 8080
+

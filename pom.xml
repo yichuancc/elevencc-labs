@@ -29,6 +29,8 @@
         <module>lab-07-data-scope</module>
         <!-- 文件对象存储 -->
         <module>lab-08-file</module>
+        <!-- 大模型Langchain4j -->
+        <module>lab-09-langchain4j</module>
     </modules>
 
 </project>
