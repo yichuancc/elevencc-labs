@@ -1,4 +1,4 @@
-package com.cc.demo01;
+package com.cc.demo02;
 
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import org.junit.jupiter.api.Test;

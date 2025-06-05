@@ -1,24 +1,23 @@
 package com.cc;
 
 import com.cc.demo02.Lab09Demo02Application;
-import dev.langchain4j.model.openai.OpenAiChatModel;
+import com.cc.demo02.service.Assistant01;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest(classes = Lab09Demo02Application.class)
-public class LLMTest02 {
+public class LLMTest04 {
     /**
      * 整合SpringBoot
      */
     @Autowired
-    private OpenAiChatModel openAiChatModel;
+    private Assistant01 assistant01;
+
     @Test
-    public void testSpringBoot() {
-        //向模型提问
-        String answer = openAiChatModel.chat("你好");
-        //输出结果
+    public void testAssistant() {
+        String answer = assistant01.chat("Hello");
         System.out.println(answer);
     }
 }
