@@ -2,11 +2,14 @@ package com.cc;
 
 
 import com.cc.demo02.Lab09Demo02Application;
+import com.cc.demo02.service.Assistant;
 import com.cc.demo02.service.Assistant01;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
+import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.service.AiServices;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,5 +48,22 @@ public class ChatMemoryTest01 {
         AiMessage aiMessage2 = chatResponse2.aiMessage();
         //输出大语言模型的回复
         System.out.println(aiMessage2.text());
+    }
+
+    @Test
+    public void testChatMemory3() {
+        //创建chatMemory
+        MessageWindowChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
+        //创建AIService
+        Assistant assistant = AiServices
+                .builder(Assistant.class)
+                .chatLanguageModel(openAiChatModel)
+                .chatMemory(chatMemory)
+                .build();
+        //调用service的接口
+        String answer1 = assistant.chat("我是环环");
+        System.out.println(answer1);
+        String answer2 = assistant.chat("我是谁");
+        System.out.println(answer2);
     }
 }
