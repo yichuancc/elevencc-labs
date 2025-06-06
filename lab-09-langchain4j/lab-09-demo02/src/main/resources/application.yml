@@ -15,6 +15,12 @@ langchain4j:
       api-key: ${DEEP_SEEK_API_KEY} #
       model-name: deepseek-chat
 
+#MongoDB连接配置
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chat_memory_db
+
 #启用日志debug级别
 logging:
   level:
