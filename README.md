@@ -35,3 +35,7 @@ lab-07-data-scope
 ## 文件对象存储
 
 lab-08-file
+
+## 大模型集成Langchain4J
+
+lab-09-langchain4j

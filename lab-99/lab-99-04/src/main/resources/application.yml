@@ -1,0 +1,8 @@
+# web服务访问端口
+server:
+  port: 9904
+
+#启用日志debug级别
+logging:
+  level:
+    root: debug
