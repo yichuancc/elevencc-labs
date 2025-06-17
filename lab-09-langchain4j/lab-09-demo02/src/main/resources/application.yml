@@ -15,6 +15,11 @@ langchain4j:
       api-key: ${DEEP_SEEK_API_KEY} #
       model-name: deepseek-chat
 
+      streaming-enabled: true
+      streaming-completion-token-limit: 1024  # 最大token数
+      streaming-timeout: 30s  # 流式响应超时时间
+      streaming-buffer-size: 50  # 缓冲区大小
+
 #MongoDB连接配置
 spring:
   data:

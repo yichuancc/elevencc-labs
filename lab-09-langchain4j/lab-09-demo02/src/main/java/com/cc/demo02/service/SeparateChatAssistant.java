@@ -5,11 +5,13 @@ import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
+import reactor.core.publisher.Flux;
 
 import static dev.langchain4j.service.spring.AiServiceWiringMode.EXPLICIT;
 
 //因为我们在配置文件中同时配置了多个大语言模型，所以需要在这里明确指定（EXPLICIT）模型的beanName
 @AiService(wiringMode = EXPLICIT,
+        streamingChatModel = "deepSeekStreamingChatModel",
         chatModel = "openAiChatModel",
         chatMemoryProvider = "chatMemoryProvider",
         chatMemory = "chatMemory")
@@ -83,4 +85,13 @@ public interface SeparateChatAssistant {
      */
     @SystemMessage(fromResource = "my-prompt-template3.txt")
     String chatV3(@MemoryId int memoryId, @UserMessage String userMessage, @V("username") String username, @V("age") int age);
+
+    /**
+     * 流式输出
+     *
+     * @param memoryId
+     * @param userMessage
+     * @return
+     */
+    Flux<String> chatFlux(@MemoryId int memoryId, @UserMessage String userMessage);
 }
